@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'hobbies/index'
+  get 'hobbies/show'
+  get 'projects/index'
+  get 'projects/show'
+  get 'educations/index'
+  get 'educations/show'
+  get 'jobs/index'
+  get 'jobs/show'
+  get 'skills/index'
+  get 'skills/show'
+  get 'contacts/index'
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -8,4 +19,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :contacts, only: %i[index]
+  resources :skills, only: %i[index show]
+  resources :jobs, only: %i[index show]
+  resources :educations, only: %i[index show]
+  resources :projects, only: %i[index show]
+  resources :hobbies, only: %i[index show]
 end
